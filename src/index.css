@@ -1,0 +1,40 @@
+:root {
+    --pro-grid-font-size: 14px;
+    --pro-grid-font-family: 'Arial', sans-serif;
+    --pro-grid-text-color: black;
+    --pro-grid-row-padding: 14px;
+    --pro-grid-row-bg-color: #ffffff;
+    --pro-grid-row-even-bg-color: var(--pro-grid-row-bg-color);
+    --pro-grid-row-odd-bg-color: var(--pro-grid-row-bg-color);
+    --pro-grid-row-border-color: #f0f0f3;
+}
+
+.fancy-table {
+    font-family: var(--pro-grid-font-family);
+    font-size: var(--pro-grid-font-size);
+    color: var(--pro-grid-text-color);
+}
+
+.fancy-table-element.fancy-table-row {
+    display: flex;
+    flex-direction: row;
+    border-bottom: solid 1px var(--pro-grid-row-border-color);
+    padding: var(--pro-grid-row-padding);
+}
+
+.fancy-table-element.fancy-table-row:nth-child(odd){
+    background-color: var(--pro-grid-row-odd-bg-color);
+}
+
+.fancy-table-element.fancy-table-row:nth-child(even) {
+    background-color: var(--pro-grid-row-even-bg-color);
+}
+
+.fancy-table-element.fancy-table-cell {
+    flex: 1 0;
+}
+
+.fancy-table-element.fancy-table-header {
+    font-weight: 700;
+    text-transform: uppercase;
+}

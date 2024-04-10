@@ -1,6 +1,8 @@
 import {FancyTableElement} from "./atoms";
 import {FancyTableBody, FancyTableHeader} from "./blocks";
 
+import './index.css';
+
 class FancyTable extends FancyTableElement {
     static FANCY_TABLE_CSS_CLASS = 'fancy-table';
     constructor(data) {
