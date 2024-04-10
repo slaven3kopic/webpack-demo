@@ -1,8 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
-    mode: 'development',
+    mode: process.env.NODE_ENV,
     entry: {
         app: './src/index.ts',
         // Runtime code for hot module replacement
@@ -14,6 +15,18 @@ module.exports = {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
         clean: false,
+    },
+    optimization: {
+        minimize: process.env.NODE_ENV === 'production',
+        minimizer: [
+            new TerserPlugin({
+                terserOptions: {
+                    mangle: true,
+                    keep_fnames: false,
+                    toplevel: true
+                },
+            }),
+        ],
     },
     module: {
         rules: [
