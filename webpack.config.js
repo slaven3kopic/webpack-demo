@@ -16,6 +16,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         clean: false,
     },
+    devtool: process.env.NODE_ENV === 'production' ? undefined : 'eval',
     optimization: {
         minimize: process.env.NODE_ENV === 'production',
         minimizer: [
