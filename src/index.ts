@@ -1,4 +1,3 @@
-// test
 import {FancyTableElement} from "./atoms";
 import {FancyTableBody, FancyTableHeader} from "./blocks";
 

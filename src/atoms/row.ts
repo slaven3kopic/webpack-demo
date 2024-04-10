@@ -1,5 +1,5 @@
-import {FancyTableElement} from "./element.js";
-import {FancyTableCell} from "./cell.js";
+import {FancyTableElement} from "./element";
+import {FancyTableCell} from "./cell";
 
 export class FancyTableRow extends FancyTableElement {
     static FANCY_TABLE_ROW_CSS_CLASS = 'fancy-table-row';

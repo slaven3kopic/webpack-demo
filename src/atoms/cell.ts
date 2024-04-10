@@ -1,4 +1,4 @@
-import {FancyTableElement} from "./element.js";
+import {FancyTableElement} from "./element";
 
 export class FancyTableCell extends FancyTableElement {
     static FANCY_TABLE_CELL_CSS_CLASS = 'fancy-table-cell';
