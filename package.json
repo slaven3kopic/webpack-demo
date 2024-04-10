@@ -5,16 +5,16 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "webpack",
-    "start": "npm run build && http-server ./dist"
+    "start": "webpack serve"
   },
   "keywords": [],
   "author": "Slaven Kopic",
   "devDependencies": {
     "css-loader": "^7.1.0",
-    "http-server": "^14.1.1",
     "style-loader": "^4.0.0",
     "ts-loader": "^9.5.1",
     "webpack": "^5.91.0",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
   }
 }

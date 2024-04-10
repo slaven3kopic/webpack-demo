@@ -1,10 +1,19 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
-    entry: './src/index.ts',
+    mode: 'development',
+    entry: {
+        app: './src/index.ts',
+        // Runtime code for hot module replacement
+        hot: 'webpack/hot/dev-server.js',
+        // Dev server client for web socket transport, hot and live reload logic
+        client: 'webpack-dev-server/client/index.js?hot=true&live-reload=true',
+    },
     output: {
-        filename: 'index.js',
+        filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
+        clean: false,
     },
     module: {
         rules: [
@@ -20,6 +29,17 @@ module.exports = {
         ],
     },
     resolve: {
-        extensions: ['.ts'],
-    }
+        extensions: ['.ts', '.js'],
+    },
+    plugins: [
+        // Plugin for hot module replacement
+        new webpack.HotModuleReplacementPlugin(),
+    ],
+    devServer: {
+        static: {
+            directory: path.join(__dirname, 'dist'),
+        },
+        port: 8000,
+        hot: false,
+    },
 }
