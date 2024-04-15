@@ -1,5 +1,6 @@
 import {FancyTableElement} from "./atoms";
 import {FancyTableBody, FancyTableHeader} from "./blocks";
+import {Router} from "./router";
 
 import './index.css';
 
@@ -11,7 +12,6 @@ class FancyTable extends FancyTableElement {
             value: 'grid',
         }]);
         this.appendGridElements(data);
-        this.attachGrid();
     }
 
     appendGridElements(data) {
@@ -26,13 +26,9 @@ class FancyTable extends FancyTableElement {
             new FancyTableBody(data.rows).getElement(),
         ];
     }
-
-    attachGrid() {
-        document.body.appendChild(this.getElement());
-    };
 }
 
-new FancyTable({
+const table = new FancyTable({
     columnDefs: [{value: 'name'}, {value: 'country'}],
     rows: [
         [{ column: 'name', value: 'John Doe'}, { column: 'country', value: 'USA'}],
@@ -42,3 +38,18 @@ new FancyTable({
         [{ column: 'name', value: 'John Doe'}, { column: 'country', value: 'USA'}],
     ]
 })
+
+const about = document.createElement('div');
+about.innerHTML = 'About page';
+
+
+new Router([
+    {
+        url: '/home',
+        element: table.getElement()
+    },
+    {
+        url: '/about',
+        element: about
+    },
+])
