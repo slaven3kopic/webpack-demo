@@ -23,8 +23,10 @@ module.exports = {
             new TerserPlugin({
                 terserOptions: {
                     mangle: true,
-                    keep_fnames: false,
-                    toplevel: true
+                    compress: {
+                        drop_console: true,
+                        dead_code: true,
+                    },
                 },
             }),
         ],

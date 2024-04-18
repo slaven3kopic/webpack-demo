@@ -9,6 +9,10 @@ const fallbackElement = () => {
     return elem;
 }
 
+function deadCode() {
+    console.log('dead')
+}
+
 export class Router {
     constructor(private routes: Array<Route>) {
         this.setRouterLinks();
@@ -24,6 +28,7 @@ export class Router {
     }
 
     private navigateByURL(url: string) {
+        console.log('hey I am not dropped')
         let elem: HTMLElement | undefined;
         // redirect to the router instance
         let route = this.routes.find(r => r.url === url)
